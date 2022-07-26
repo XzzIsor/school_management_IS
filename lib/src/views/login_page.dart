@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shool_management/src/widgets/background_main.dart';
 import 'package:shool_management/src/widgets/widgets.dart';
 
 class LoginPage extends StatelessWidget {

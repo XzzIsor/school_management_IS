@@ -34,6 +34,7 @@ class _PeriodTableState extends State<PeriodTable> {
                 children: [_periodTitle(_size), _periodTitle(_size)],
               ),
             ),
+            SizedBox(height: _size.height * 0.015),
             _addButton(_size)
           ],
         ),
@@ -63,8 +64,9 @@ class _PeriodTableState extends State<PeriodTable> {
       height: size.height * 0.04,
       width: size.width * 0.25,
       color: Colors.white,
-      child:
-          Text(text, style: TextStyle(fontSize: size.width / size.height * 15)),
+      child: Text(text,
+          style:
+              TextStyle(fontSize: size.longestSide / size.shortestSide * 12)),
     );
   }
 
@@ -78,7 +80,7 @@ class _PeriodTableState extends State<PeriodTable> {
           child: Icon(
             Icons.add,
             color: Colors.white,
-            size: size.width / size.height * 20,
+            size: size.longestSide / size.shortestSide * 16,
           ),
           style: ElevatedButton.styleFrom(
               elevation: 2,

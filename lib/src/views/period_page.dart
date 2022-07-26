@@ -7,6 +7,7 @@ class PeriodPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: NavigationButton(),
       body: Stack(
         children: [BackgroundMain(), PeriodTable()],
       ),

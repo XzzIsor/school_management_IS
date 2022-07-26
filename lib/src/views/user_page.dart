@@ -17,6 +17,7 @@ class UserPage extends StatelessWidget {
     );
 
     return Scaffold(
+      floatingActionButton: NavigationButton(),
       body: Stack(
         children: [const BackgroundMain(), _profile],
       ),

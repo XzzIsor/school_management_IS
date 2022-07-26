@@ -32,33 +32,31 @@ class _PeriodAddState extends State<PeriodAdd> {
             end: FractionalOffset(0, 1),
           ),
           borderRadius: BorderRadius.circular(25)),
-      height: _size.height * 0.5,
-      width: _size.width * 0.2,
+      height: _size.height * 0.6,
+      width: _size.width * 0.3,
       child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: _size.width / _size.height * 15,
-            vertical: _size.width / _size.height * 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CustomTextField(
-                label: 'Nombre',
-                icon: Icons.abc,
-                hintText: 'Periodo 2020-1',
-                onChange: (value) {},
-                emailType: false,
-                obscureText: false),
-            SizedBox(height: _size.height * 0.04),
-            Text('Fecha Inicial', style: styleT),
-            _datePickerInit(context, _size),
-            SizedBox(height: _size.height * 0.02),
-            Text('Fecha Final', style: styleT),
-            _datePickerFinal(context, _size),
-            SizedBox(height: _size.height * 0.02),
-            _addButton(_size)
-          ],
-        ),
-      ),
+          padding: EdgeInsets.symmetric(
+              horizontal: _size.width / _size.height * 15,
+              vertical: _size.width / _size.height * 15),
+          child: ListView(
+            children: [
+              CustomTextField(
+                  label: 'Nombre',
+                  icon: Icons.abc,
+                  hintText: 'Periodo 2020-1',
+                  onChange: (value) {},
+                  emailType: false,
+                  obscureText: false),
+              SizedBox(height: _size.height * 0.03),
+              Text('Fecha Inicial', style: styleT),
+              _datePickerInit(context, _size),
+              SizedBox(height: _size.height * 0.015),
+              Text('Fecha Final', style: styleT),
+              _datePickerFinal(context, _size),
+              SizedBox(height: _size.height * 0.015),
+              _addButton(_size)
+            ],
+          )),
     );
   }
 
@@ -129,7 +127,7 @@ class _PeriodAddState extends State<PeriodAdd> {
         onPressed: () {},
         child: Text('Agregar',
             style: TextStyle(
-                fontSize: size.width / size.height * 15, color: Colors.black)));
+                fontSize: size.width / size.height * 12, color: Colors.black)));
   }
 
   Future<DateTime?> _datePickerWidget(Size size) async {

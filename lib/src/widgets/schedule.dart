@@ -6,6 +6,7 @@ class Schedule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
+    double _sizeResponsive = _size.longestSide / _size.shortestSide;
     List<Widget> _rowDays = [
       _scheduleBox('Horarios/Dias', _size),
       _scheduleBox('Lunes', _size),

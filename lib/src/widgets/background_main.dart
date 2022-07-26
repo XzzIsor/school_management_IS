@@ -6,17 +6,19 @@ class BackgroundMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size _size = MediaQuery.of(context).size;
+    double size = _size.longestSide / _size.shortestSide;
     return Stack(
       children: [
         boxWithGrandient(),
-        smallCircleWithGrandient(),
-        smallCircleWithGrandient1(),
-        smallCircleWithGrandient2(),
-        smallCircleWithGrandient3(),
-        smallCircleWithGrandient4(),
-        smallCircleWithGrandient5(),
-        smallCircleWithGrandient6(),
-        smallCircleWithGrandient7()
+        smallCircleWithGrandient(size, _size),
+        smallCircleWithGrandient1(size, _size),
+        smallCircleWithGrandient2(size, _size),
+        smallCircleWithGrandient3(size, _size),
+        smallCircleWithGrandient4(size, _size),
+        smallCircleWithGrandient5(size, _size),
+        smallCircleWithGrandient6(size, _size),
+        smallCircleWithGrandient7(size, _size)
       ],
     );
   }
@@ -38,10 +40,10 @@ class BackgroundMain extends StatelessWidget {
     );
   }
 
-  Widget smallCircleWithGrandient() {
+  Widget smallCircleWithGrandient(double size, Size position) {
     Widget smallBox = Container(
-        width: 360,
-        height: 360,
+        width: size * 100,
+        height: size * 100,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
@@ -55,18 +57,18 @@ class BackgroundMain extends StatelessWidget {
         ));
 
     return Positioned(
-        top: 150,
-        left: 80,
+        top: position.height * 0.1,
+        left: position.width * 0.05,
         child: Transform.rotate(
           angle: -pi / 4.0,
           child: smallBox,
         ));
   }
 
-  Widget smallCircleWithGrandient1() {
+  Widget smallCircleWithGrandient1(double size, Size position) {
     Widget smallBox = Container(
-        width: 200,
-        height: 200,
+        width: size * 140,
+        height: size * 140,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
@@ -80,18 +82,18 @@ class BackgroundMain extends StatelessWidget {
         ));
 
     return Positioned(
-        top: 100,
-        right: 300,
+        top: position.height * 0.08,
+        right: position.height * 0.3,
         child: Transform.rotate(
           angle: -pi / 4.0,
           child: smallBox,
         ));
   }
 
-  Widget smallCircleWithGrandient2() {
+  Widget smallCircleWithGrandient2(double size, Size position) {
     Widget smallBox = Container(
-        width: 150,
-        height: 150,
+        width: size * 60,
+        height: size * 60,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
@@ -105,18 +107,18 @@ class BackgroundMain extends StatelessWidget {
         ));
 
     return Positioned(
-        top: 450,
-        right: 750,
+        top: position.height * 0.25,
+        right: position.width * 0.45,
         child: Transform.rotate(
           angle: -pi / 4.0,
           child: smallBox,
         ));
   }
 
-  Widget smallCircleWithGrandient3() {
+  Widget smallCircleWithGrandient3(double size, Size position) {
     Widget smallBox = Container(
-        width: 80,
-        height: 80,
+        width: size * 70,
+        height: size * 70,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
@@ -130,18 +132,18 @@ class BackgroundMain extends StatelessWidget {
         ));
 
     return Positioned(
-        bottom: 300,
-        right: 140,
+        bottom: position.height * 0.25,
+        right: position.width * 0.05,
         child: Transform.rotate(
           angle: -pi / 4.0,
           child: smallBox,
         ));
   }
 
-  Widget smallCircleWithGrandient4() {
+  Widget smallCircleWithGrandient4(double size, Size position) {
     Widget smallBox = Container(
-        width: 100,
-        height: 100,
+        width: size * 45,
+        height: size * 45,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
@@ -155,18 +157,18 @@ class BackgroundMain extends StatelessWidget {
         ));
 
     return Positioned(
-        bottom: 150,
-        left: 80,
+        bottom: position.height * 0.2,
+        left: position.width * 0.04,
         child: Transform.rotate(
           angle: -pi / 4.0,
           child: smallBox,
         ));
   }
 
-  Widget smallCircleWithGrandient5() {
+  Widget smallCircleWithGrandient5(double size, Size position) {
     Widget smallBox = Container(
-        width: 120,
-        height: 120,
+        width: size * 55,
+        height: size * 55,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
@@ -180,18 +182,18 @@ class BackgroundMain extends StatelessWidget {
         ));
 
     return Positioned(
-        top: 300,
-        left: 650,
+        top: position.height * 0.1,
+        left: position.width * 0.3,
         child: Transform.rotate(
           angle: -pi / 4.0,
           child: smallBox,
         ));
   }
 
-  Widget smallCircleWithGrandient6() {
+  Widget smallCircleWithGrandient6(double size, Size position) {
     Widget smallBox = Container(
-        width: 250,
-        height: 250,
+        width: size * 60,
+        height: size * 60,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
@@ -205,18 +207,18 @@ class BackgroundMain extends StatelessWidget {
         ));
 
     return Positioned(
-        bottom: 100,
-        right: 350,
+        bottom: position.height * 0.15,
+        right: position.width * 0.3,
         child: Transform.rotate(
           angle: -pi / 4.0,
           child: smallBox,
         ));
   }
 
-  Widget smallCircleWithGrandient7() {
+  Widget smallCircleWithGrandient7(double size, Size position) {
     Widget smallBox = Container(
-        width: 135,
-        height: 135,
+        width: size * 47,
+        height: size * 47,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
@@ -230,8 +232,8 @@ class BackgroundMain extends StatelessWidget {
         ));
 
     return Positioned(
-        bottom: 250,
-        left: 450,
+        bottom: position.height * 0.3,
+        left: position.width * 0.27,
         child: Transform.rotate(
           angle: -pi / 4.0,
           child: smallBox,

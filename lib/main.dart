@@ -8,10 +8,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        localizationsDelegates: GlobalMaterialLocalizations.delegates,
-        supportedLocales: const [Locale('es')],
-        theme: ThemeData(fontFamily: 'Cardinal'),
-        title: 'Material App',
-        home: const PeriodPage());
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+      supportedLocales: const [Locale('es')],
+      theme: ThemeData(fontFamily: 'Cardinal'),
+      title: 'School Management',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => LoginPage(),
+        '/user': (context) => UserPage(),
+        '/period': (context) => PeriodPage()
+      },
+    );
   }
 }

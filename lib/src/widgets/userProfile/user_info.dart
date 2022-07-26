@@ -6,14 +6,21 @@ class UserInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
-
+    double _sizeResponsive = _size.longestSide / _size.shortestSide;
     return Padding(
       padding: EdgeInsets.only(top: _size.height * 0.06),
       child: Container(
         height: _size.height * 0.5,
         width: _size.width * 0.7,
         decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(25)),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(25),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black54,
+                  blurRadius: _sizeResponsive * 3,
+                  spreadRadius: _sizeResponsive * 2)
+            ]),
         child: Row(
           children: [
             _userBox(_size),
@@ -51,7 +58,7 @@ class UserInfo extends StatelessWidget {
   Widget _infoBox(Size size, String name, String id, String age) {
     return SizedBox(
       height: size.height * 0.45,
-      width: size.width * 0.5,
+      width: size.width * 0.4,
       child: Padding(
         padding: EdgeInsets.all(size.height * 0.02),
         child: Column(

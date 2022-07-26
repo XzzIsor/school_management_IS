@@ -86,10 +86,12 @@ class _LoginFormState extends State<LoginForm> {
         child: Form(
           child: Padding(
             padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
-            child: Column(
+            child: ListView(
               children: [
-                const Text('Iniciar Sesión',
-                    style: TextStyle(color: Colors.white, fontSize: 25)),
+                const Center(
+                  child: Text('Iniciar Sesión',
+                      style: TextStyle(color: Colors.white, fontSize: 25)),
+                ),
                 SizedBox(height: _size.width * 0.01),
                 Padding(
                   padding: const EdgeInsets.all(5.0),
