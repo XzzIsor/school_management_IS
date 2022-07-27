@@ -12,12 +12,13 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [Locale('es')],
       theme: ThemeData(fontFamily: 'Avenir'),
       title: 'School Management',
-      initialRoute: '/user',
+      initialRoute: '/period',
       routes: {
         '/': (context) => const LoginPage(),
         '/user': (context) => const UserPage(),
         '/period': (context) => const PeriodPage(),
         '/enviroment': (context) => const EnviromentPage(),
+        '/schedule': (context) => const SchedulePage()
       },
     );
   }

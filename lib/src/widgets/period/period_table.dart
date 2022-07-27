@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shool_management/src/models/models.dart';
 import 'package:shool_management/src/widgets/widgets.dart';
 
 class PeriodTable extends StatefulWidget {
@@ -9,51 +10,84 @@ class PeriodTable extends StatefulWidget {
 }
 
 class _PeriodTableState extends State<PeriodTable> {
+  List<AcademicPeriod> periods = [];
+  @override
+  void initState() {
+    AcademicPeriod period = AcademicPeriod(
+        id: '',
+        name: 'Nombre',
+        startDate: 'Fecha Inicial',
+        endDate: 'Fecha Final');
+
+    periods.insert(0, period);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
     return Center(
-      child: Container(
-        decoration: BoxDecoration(color: Colors.transparent, boxShadow: [
-          BoxShadow(
-              color: Colors.black45,
-              blurRadius: _size.width / _size.height * 12,
-              offset: const Offset(-2, 0))
-        ]),
-        height: _size.height * 0.7,
-        width: _size.width * 0.8,
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(_size.height * 0.015),
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
-              height: _size.height * 0.6,
-              width: _size.width * 0.8,
-              child: ListView(
-                children: [_periodTitle(_size), _periodTitle(_size)],
-              ),
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: _size.height * 0.06),
+            child: Center(
+              child: Text('Gestión de Periodos',
+                  style: TextStyle(
+                      fontSize: _size.longestSide / _size.shortestSide * 15,
+                      fontWeight: FontWeight.bold)),
             ),
-            SizedBox(height: _size.height * 0.015),
-            _addButton(_size)
-          ],
-        ),
+          ),
+          Container(
+            decoration: BoxDecoration(color: Colors.transparent, boxShadow: [
+              BoxShadow(
+                  color: Colors.black45,
+                  blurRadius: _size.width / _size.height * 12,
+                  offset: const Offset(-2, 0))
+            ]),
+            height: _size.height * 0.7,
+            width: _size.width * 0.8,
+            child: Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.all(_size.height * 0.015),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10)),
+                  height: _size.height * 0.6,
+                  width: _size.width * 0.8,
+                  child: ListView.builder(
+                      itemCount: periods.length,
+                      itemBuilder: (context, index) =>
+                          _periodTitle(_size, periods[index])),
+                ),
+                SizedBox(height: _size.height * 0.015),
+                _addButton(_size)
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 
-  Widget _periodTitle(Size size) {
+  Widget _periodTitle(Size size, AcademicPeriod period) {
     return SizedBox(
       height: size.height * 0.05,
       width: size.width * 0.7,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _textBox('Nombre', size),
+          _textBox(period.name, size),
           SizedBox(width: size.width * 0.0005),
-          _textBox('Fecha Inicio', size),
+          _textBox(period.startDate, size),
           SizedBox(width: size.width * 0.0005),
-          _textBox('Fecha Final', size)
+          _textBox(period.endDate, size)
         ],
       ),
     );
@@ -65,6 +99,7 @@ class _PeriodTableState extends State<PeriodTable> {
       width: size.width * 0.25,
       color: Colors.white,
       child: Text(text,
+          overflow: TextOverflow.ellipsis,
           style:
               TextStyle(fontSize: size.longestSide / size.shortestSide * 10)),
     );

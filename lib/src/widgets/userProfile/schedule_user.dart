@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Schedule extends StatefulWidget {
-  const Schedule({Key? key}) : super(key: key);
+class ScheduleUser extends StatefulWidget {
+  const ScheduleUser({Key? key}) : super(key: key);
 
   @override
-  State<Schedule> createState() => _ScheduleState();
+  State<ScheduleUser> createState() => _ScheduleUserState();
 }
 
-class _ScheduleState extends State<Schedule> {
+class _ScheduleUserState extends State<ScheduleUser> {
   @override
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;

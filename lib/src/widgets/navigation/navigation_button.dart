@@ -20,7 +20,7 @@ class NavigationButton extends StatelessWidget {
 
   SpeedDial _navigationMenu(
       Size size, ValueNotifier<bool> isDialOpen, BuildContext context) {
-    Color color = Color.fromRGBO(245, 241, 203, 1);
+    Color color = const Color.fromRGBO(245, 241, 203, 1);
     return SpeedDial(
       backgroundColor: color,
       foregroundColor: Colors.black,
@@ -39,7 +39,7 @@ class NavigationButton extends StatelessWidget {
           child: const Icon(Icons.person),
           label: 'Usuario',
           onTap: () {
-            Navigator.pushReplacementNamed(context, '/user');
+            Navigator.pushNamed(context, '/user');
             isDialOpen.value = false;
           },
         ),
@@ -49,7 +49,7 @@ class NavigationButton extends StatelessWidget {
           label: 'Periodo',
           onTap: () {
             isDialOpen.value = false;
-            Navigator.pushReplacementNamed(context, '/period');
+            Navigator.pushNamed(context, '/period');
           },
         ),
         SpeedDialChild(
@@ -58,16 +58,25 @@ class NavigationButton extends StatelessWidget {
           label: 'Ambientes',
           onTap: () {
             isDialOpen.value = false;
-            Navigator.pushReplacementNamed(context, '/enviroment');
+            Navigator.pushNamed(context, '/enviroment');
           },
         ),
         SpeedDialChild(
           backgroundColor: color,
           child: const Icon(Icons.schedule),
-          label: 'Agenda',
+          label: 'Horarios',
           onTap: () {
             isDialOpen.value = false;
-            //Navigator.pushNamed(context, '//TODO: add route');
+            Navigator.pushNamed(context, '/schedule');
+          },
+        ),
+        SpeedDialChild(
+          backgroundColor: color,
+          child: const Icon(Icons.logout_outlined),
+          label: 'Cerrar Sesión',
+          onTap: () {
+            isDialOpen.value = false;
+            Navigator.pushReplacementNamed(context, '/');
           },
         ),
       ],

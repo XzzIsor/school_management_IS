@@ -12,7 +12,8 @@ class UserPage extends StatelessWidget {
       children: [
         const Center(child: UserInfo()),
         SizedBox(height: _size.height * 0.05),
-        const Center(child: Schedule())
+        const Center(child: ScheduleUser()),
+        SizedBox(height: _size.height * 0.05),
       ],
     );
 

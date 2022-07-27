@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:shool_management/src/models/models.dart';
 
 class UserInfo extends StatelessWidget {
   const UserInfo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    User authUser = User(
+        id: '1',
+        name: 'Juan',
+        lastname: 'Perez',
+        email: 'nose@gmail.com',
+        type: 'Profesional',
+        contract: 'PT',
+        area: 'Ingeniería',
+        hoursDay: 1,
+        hoursWeek: 28,
+        teacher: true,
+        state: true,
+        idType: 'CC');
     Size _size = MediaQuery.of(context).size;
     double _sizeResponsive = _size.longestSide / _size.shortestSide;
     return Padding(
@@ -24,7 +38,8 @@ class UserInfo extends StatelessWidget {
         child: Row(
           children: [
             _userBox(_size),
-            _infoBox(_size, 'Juanito', '1202202', '15')
+            _infoBox1(_size, authUser),
+            _infoBox2(_size, authUser)
           ],
         ),
       ),
@@ -55,18 +70,38 @@ class UserInfo extends StatelessWidget {
     );
   }
 
-  Widget _infoBox(Size size, String name, String id, String age) {
+  Widget _infoBox1(Size size, User user) {
     return SizedBox(
       height: size.height * 0.45,
-      width: size.width * 0.4,
+      width: size.width * 0.2,
       child: Padding(
         padding: EdgeInsets.all(size.height * 0.02),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _text(size, 'Nombre: ' + name),
-            _text(size, 'ID: ' + id),
-            _text(size, 'Edad: ' + age)
+            _text(size, 'ID: ' + user.id),
+            _text(size, 'Tipo Documento: ' + user.idType),
+            _text(size, 'Nombre: ' + user.name),
+            _text(size, 'Apellido: ' + user.lastname),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _infoBox2(Size size, User user) {
+    return SizedBox(
+      height: size.height * 0.45,
+      width: size.width * 0.2,
+      child: Padding(
+        padding: EdgeInsets.all(size.height * 0.02),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _text(size, 'Estudios: ' + user.type),
+            _text(size, 'Contrato: ' + user.contract),
+            _text(size, 'Area: ' + user.area),
+            _text(size, 'Email: ' + user.email),
           ],
         ),
       ),
@@ -75,11 +110,11 @@ class UserInfo extends StatelessWidget {
 
   Widget _text(Size size, String text) {
     return SizedBox(
-      width: size.width * 0.45,
+      width: size.width * 0.2,
       child: Text(
         text,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(fontSize: size.height * 0.03),
+        style: TextStyle(fontSize: size.aspectRatio * 10),
       ),
     );
   }

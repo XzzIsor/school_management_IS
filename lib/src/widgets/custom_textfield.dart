@@ -14,7 +14,8 @@ class CustomTextField extends StatefulWidget {
       this.inputFormatters,
       this.validator,
       this.counterText,
-      this.maxLines})
+      this.maxLines,
+      this.mainColor})
       : super(key: key);
 
   final String label;
@@ -28,6 +29,7 @@ class CustomTextField extends StatefulWidget {
   final bool obscureText;
   final String? initialValue;
   final List<TextInputFormatter>? inputFormatters;
+  final Color? mainColor;
 
   @override
   _CustomTextFieldState createState() => _CustomTextFieldState();
@@ -79,12 +81,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     icon: Icon(
                       obsIcon,
                     ),
-                    color: Colors.white)
+                    color: widget.mainColor ?? Colors.white)
                 : null,
-            icon: Icon(widget.icon, color: Colors.white),
+            icon: Icon(widget.icon, color: widget.mainColor ?? Colors.white),
             labelText: widget.label,
             labelStyle: TextStyle(
-                color: _focusNode!.hasFocus ? Colors.white : Colors.black),
+                color: _focusNode!.hasFocus
+                    ? widget.mainColor ?? Colors.white
+                    : Colors.black),
             fillColor: Colors.white,
             hintText: widget.hintText,
             enabledBorder: _borderStyle(),
@@ -100,7 +104,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
   }
 
   UnderlineInputBorder _borderStyle() {
-    return const UnderlineInputBorder(
-        borderSide: BorderSide(color: Colors.white, width: 1.5));
+    return UnderlineInputBorder(
+        borderSide:
+            BorderSide(color: widget.mainColor ?? Colors.white, width: 1.5));
   }
 }
