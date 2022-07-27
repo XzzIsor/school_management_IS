@@ -69,43 +69,44 @@ class _LoginFormState extends State<LoginForm> {
           onSurface: Colors.white),
     );
 
-    return Center(
-      child: Container(
-        decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [
-                Color.fromRGBO(57, 97, 100, 0.95),
-                Color.fromRGBO(44, 51, 51, 0.95),
-              ],
-              begin: FractionalOffset(0.15, 0.6),
-              end: FractionalOffset(0.3, 0.9),
-            ),
-            borderRadius: BorderRadius.circular(25)),
-        height: _size.height * 0.6,
-        width: _size.width * 0.25,
-        child: Form(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
-            child: ListView(
-              children: [
-                const Center(
-                  child: Text('Iniciar Sesión',
-                      style: TextStyle(color: Colors.white, fontSize: 25)),
-                ),
-                SizedBox(height: _size.width * 0.01),
-                Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: _emailInput,
-                ),
-                SizedBox(height: _size.width * 0.02),
-                Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: _passwordInput,
-                ),
-                SizedBox(height: _size.width * 0.04),
-                Center(child: _button)
-              ],
-            ),
+    return Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromRGBO(113, 201, 206, 1),
+              Color.fromARGB(255, 23, 128, 138),
+            ],
+            begin: FractionalOffset(0.15, 0.6),
+            end: FractionalOffset(0.3, 0.9),
+          ),
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(25),
+            bottomRight: Radius.circular(25),
+          )),
+      height: _size.height * 0.6,
+      width: _size.width * 0.25,
+      child: Form(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
+          child: ListView(
+            children: [
+              const Center(
+                child: Text('Iniciar Sesión',
+                    style: TextStyle(color: Colors.white, fontSize: 25)),
+              ),
+              SizedBox(height: _size.width * 0.01),
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: _emailInput,
+              ),
+              SizedBox(height: _size.width * 0.02),
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: _passwordInput,
+              ),
+              SizedBox(height: _size.width * 0.04),
+              Center(child: _button)
+            ],
           ),
         ),
       ),

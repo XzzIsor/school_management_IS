@@ -8,7 +8,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: const [BackgroundMain(), LoginForm()],
+        children: const [BackgroundMain(), HomeDialog()],
       ),
     );
   }

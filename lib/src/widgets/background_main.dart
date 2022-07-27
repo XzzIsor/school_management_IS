@@ -11,14 +11,14 @@ class BackgroundMain extends StatelessWidget {
     return Stack(
       children: [
         boxWithGrandient(),
-        smallCircleWithGrandient(size, _size),
-        smallCircleWithGrandient1(size, _size),
-        smallCircleWithGrandient2(size, _size),
-        smallCircleWithGrandient3(size, _size),
-        smallCircleWithGrandient4(size, _size),
-        smallCircleWithGrandient5(size, _size),
-        smallCircleWithGrandient6(size, _size),
-        smallCircleWithGrandient7(size, _size)
+        //smallCircleWithGrandient(size, _size),
+        //smallCircleWithGrandient1(size, _size),
+        //smallCircleWithGrandient2(size, _size),
+        //smallCircleWithGrandient3(size, _size),
+        //smallCircleWithGrandient4(size, _size),
+        //smallCircleWithGrandient5(size, _size),
+        //smallCircleWithGrandient6(size, _size),
+        //smallCircleWithGrandient7(size, _size)
       ],
     );
   }
@@ -30,8 +30,8 @@ class BackgroundMain extends StatelessWidget {
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color.fromRGBO(44, 51, 51, 1),
-            Color.fromRGBO(57, 97, 100, 1),
+            Color.fromRGBO(113, 201, 206, 1),
+            Color.fromARGB(255, 23, 128, 138),
           ],
           begin: FractionalOffset(0.6, 0.8),
           end: FractionalOffset(0, 1),
@@ -48,8 +48,8 @@ class BackgroundMain extends StatelessWidget {
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
             colors: [
-              Color.fromRGBO(165, 201, 202, 1),
-              Color.fromRGBO(231, 246, 242, 1),
+              Color.fromRGBO(245, 241, 203, 1),
+              Color.fromRGBO(227, 253, 253, 1),
             ],
             begin: FractionalOffset(0, 0.4),
             end: FractionalOffset(0.2, 1),
@@ -73,8 +73,8 @@ class BackgroundMain extends StatelessWidget {
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
             colors: [
-              Color.fromRGBO(165, 201, 202, 1),
-              Color.fromRGBO(231, 246, 242, 1),
+              Color.fromRGBO(245, 241, 203, 1),
+              Color.fromRGBO(227, 253, 253, 1),
             ],
             begin: FractionalOffset(0, 0.4),
             end: FractionalOffset(0.2, 1),
@@ -98,8 +98,8 @@ class BackgroundMain extends StatelessWidget {
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
             colors: [
-              Color.fromRGBO(165, 201, 202, 1),
-              Color.fromRGBO(231, 246, 242, 1),
+              Color.fromRGBO(245, 241, 203, 1),
+              Color.fromRGBO(227, 253, 253, 1),
             ],
             begin: FractionalOffset(0, 0.4),
             end: FractionalOffset(0.2, 1),
@@ -123,8 +123,8 @@ class BackgroundMain extends StatelessWidget {
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
             colors: [
-              Color.fromRGBO(165, 201, 202, 1),
-              Color.fromRGBO(231, 246, 242, 1),
+              Color.fromRGBO(245, 241, 203, 1),
+              Color.fromRGBO(227, 253, 253, 1),
             ],
             begin: FractionalOffset(0, 0.4),
             end: FractionalOffset(0.2, 1),
@@ -148,8 +148,8 @@ class BackgroundMain extends StatelessWidget {
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
             colors: [
-              Color.fromRGBO(165, 201, 202, 1),
-              Color.fromRGBO(231, 246, 242, 1),
+              Color.fromRGBO(245, 241, 203, 1),
+              Color.fromRGBO(227, 253, 253, 1),
             ],
             begin: FractionalOffset(0, 0.4),
             end: FractionalOffset(0.2, 1),
@@ -173,8 +173,8 @@ class BackgroundMain extends StatelessWidget {
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
             colors: [
-              Color.fromRGBO(165, 201, 202, 1),
-              Color.fromRGBO(231, 246, 242, 1),
+              Color.fromRGBO(245, 241, 203, 1),
+              Color.fromRGBO(227, 253, 253, 1),
             ],
             begin: FractionalOffset(0, 0.4),
             end: FractionalOffset(0.2, 1),
@@ -198,8 +198,8 @@ class BackgroundMain extends StatelessWidget {
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
             colors: [
-              Color.fromRGBO(165, 201, 202, 1),
-              Color.fromRGBO(231, 246, 242, 1),
+              Color.fromRGBO(245, 241, 203, 1),
+              Color.fromRGBO(227, 253, 253, 1),
             ],
             begin: FractionalOffset(0, 0.4),
             end: FractionalOffset(0.2, 1),
@@ -223,8 +223,8 @@ class BackgroundMain extends StatelessWidget {
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
             colors: [
-              Color.fromRGBO(165, 201, 202, 1),
-              Color.fromRGBO(231, 246, 242, 1),
+              Color.fromRGBO(245, 241, 203, 1),
+              Color.fromRGBO(227, 253, 253, 1),
             ],
             begin: FractionalOffset(0, 0.4),
             end: FractionalOffset(0.2, 1),

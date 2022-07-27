@@ -25,21 +25,30 @@ class _PeriodAddState extends State<PeriodAdd> {
       decoration: BoxDecoration(
           gradient: const LinearGradient(
             colors: [
-              Color.fromRGBO(44, 51, 51, 1),
-              Color.fromRGBO(57, 97, 100, 1),
+              Color.fromRGBO(113, 201, 206, 1),
+              Color.fromARGB(255, 23, 128, 138),
             ],
             begin: FractionalOffset(0.6, 0.8),
             end: FractionalOffset(0, 1),
           ),
           borderRadius: BorderRadius.circular(25)),
-      height: _size.height * 0.6,
+      height: _size.height * 0.65,
       width: _size.width * 0.3,
       child: Padding(
           padding: EdgeInsets.symmetric(
-              horizontal: _size.width / _size.height * 15,
-              vertical: _size.width / _size.height * 15),
+              horizontal: _size.longestSide / _size.shortestSide * 15,
+              vertical: _size.longestSide / _size.shortestSide * 15),
           child: ListView(
             children: [
+              Center(
+                child: Text(
+                  'Crear Periodo',
+                  style: TextStyle(
+                    fontSize: _size.longestSide / _size.shortestSide * 10,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
               CustomTextField(
                   label: 'Nombre',
                   icon: Icons.abc,
@@ -117,17 +126,21 @@ class _PeriodAddState extends State<PeriodAdd> {
   }
 
   Widget _addButton(Size size) {
-    return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.all(size.width / size.height * 10),
-            elevation: 2,
-            primary: const Color.fromRGBO(165, 201, 202, 1),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15))),
-        onPressed: () {},
-        child: Text('Agregar',
-            style: TextStyle(
-                fontSize: size.width / size.height * 12, color: Colors.black)));
+    return SizedBox(
+      width: size.width * 0.05,
+      child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.all(size.width / size.height * 10),
+              elevation: 2,
+              primary: const Color.fromRGBO(245, 241, 203, 1),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15))),
+          onPressed: () {},
+          child: Text('Agregar',
+              style: TextStyle(
+                  fontSize: size.longestSide / size.shortestSide * 10,
+                  color: Colors.black))),
+    );
   }
 
   Future<DateTime?> _datePickerWidget(Size size) async {
@@ -147,9 +160,9 @@ class _PeriodAddState extends State<PeriodAdd> {
             const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
       ),
       theme: ThemeData(
-          primaryColor: const Color.fromRGBO(57, 97, 100, 1),
+          primaryColor: const Color.fromRGBO(113, 201, 206, 1),
           // ignore: deprecated_member_use
-          accentColor: const Color.fromRGBO(165, 201, 202, 1),
+          accentColor: const Color.fromRGBO(245, 241, 203, 1),
           textTheme: const TextTheme(
             caption:
                 TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
@@ -158,7 +171,7 @@ class _PeriodAddState extends State<PeriodAdd> {
             bodyText2:
                 TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
           ),
-          dialogBackgroundColor: const Color.fromRGBO(44, 51, 51, 1),
+          dialogBackgroundColor: const Color.fromARGB(255, 23, 128, 138),
           disabledColor: Colors.white),
       initialDate: DateTime.now(),
       firstDate: DateTime(DateTime.now().year - 1),

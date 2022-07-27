@@ -35,10 +35,13 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   FocusNode? _focusNode;
+  bool obsText = false;
+  IconData obsIcon = Icons.visibility;
 
   @override
   void initState() {
     _focusNode = FocusNode();
+    obsText = widget.obscureText;
     super.initState();
   }
 
@@ -53,7 +56,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return TextFormField(
         maxLines: widget.maxLines,
         initialValue: widget.initialValue,
-        obscureText: widget.obscureText,
+        obscureText: obsText,
         inputFormatters: widget.inputFormatters,
         onTap: _requestFocus,
         focusNode: _focusNode,
@@ -63,6 +66,21 @@ class _CustomTextFieldState extends State<CustomTextField> {
             widget.emailType ? TextInputType.emailAddress : TextInputType.text,
         style: const TextStyle(color: Colors.white),
         decoration: InputDecoration(
+            suffixIcon: widget.obscureText
+                ? IconButton(
+                    onPressed: () {
+                      setState(() {
+                        obsText = !obsText;
+                        obsText
+                            ? obsIcon = Icons.visibility
+                            : obsIcon = Icons.visibility_off;
+                      });
+                    },
+                    icon: Icon(
+                      obsIcon,
+                    ),
+                    color: Colors.white)
+                : null,
             icon: Icon(widget.icon, color: Colors.white),
             labelText: widget.label,
             labelStyle: TextStyle(

@@ -10,13 +10,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       localizationsDelegates: GlobalMaterialLocalizations.delegates,
       supportedLocales: const [Locale('es')],
-      theme: ThemeData(fontFamily: 'Cardinal'),
+      theme: ThemeData(fontFamily: 'Avenir'),
       title: 'School Management',
-      initialRoute: '/',
+      initialRoute: '/user',
       routes: {
-        '/': (context) => LoginPage(),
-        '/user': (context) => UserPage(),
-        '/period': (context) => PeriodPage()
+        '/': (context) => const LoginPage(),
+        '/user': (context) => const UserPage(),
+        '/period': (context) => const PeriodPage(),
+        '/enviroment': (context) => const EnviromentPage(),
       },
     );
   }

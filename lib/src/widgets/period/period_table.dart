@@ -66,7 +66,7 @@ class _PeriodTableState extends State<PeriodTable> {
       color: Colors.white,
       child: Text(text,
           style:
-              TextStyle(fontSize: size.longestSide / size.shortestSide * 12)),
+              TextStyle(fontSize: size.longestSide / size.shortestSide * 10)),
     );
   }
 

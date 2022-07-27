@@ -41,15 +41,15 @@ class UserInfo extends StatelessWidget {
           borderRadius: BorderRadius.circular(200),
           gradient: const LinearGradient(
             colors: [
-              Color.fromRGBO(44, 51, 51, 1),
-              Color.fromRGBO(57, 97, 100, 1),
+              Color.fromRGBO(113, 201, 206, 1),
+              Color.fromARGB(255, 23, 128, 138),
             ],
             begin: FractionalOffset(0, 0.4),
             end: FractionalOffset(0.2, 1),
           ),
         ),
         child: Icon(Icons.person,
-            color: const Color.fromRGBO(165, 201, 202, 1),
+            color: const Color.fromRGBO(245, 241, 203, 1),
             size: size.height * 0.15),
       ),
     );

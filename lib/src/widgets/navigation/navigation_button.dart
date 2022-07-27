@@ -15,15 +15,15 @@ class NavigationButton extends StatelessWidget {
       child: _navigationMenu(size, isDialOpen, context),
       elevation: 10,
       mouseCursor: MouseCursor.defer,
-      backgroundColor: const Color.fromRGBO(165, 201, 202, 1),
-      foregroundColor: const Color.fromRGBO(165, 201, 202, 1),
-      focusColor: const Color.fromRGBO(165, 201, 202, 1),
     );
   }
 
   SpeedDial _navigationMenu(
       Size size, ValueNotifier<bool> isDialOpen, BuildContext context) {
+    Color color = Color.fromRGBO(245, 241, 203, 1);
     return SpeedDial(
+      backgroundColor: color,
+      foregroundColor: Colors.black,
       overlayColor: Colors.black26,
       overlayOpacity: 0.5,
       spaceBetweenChildren: size.longestSide / size.shortestSide * 2,
@@ -35,7 +35,7 @@ class NavigationButton extends StatelessWidget {
       animationDuration: const Duration(milliseconds: 300),
       children: [
         SpeedDialChild(
-          backgroundColor: const Color.fromRGBO(165, 201, 202, 1),
+          backgroundColor: color,
           child: const Icon(Icons.person),
           label: 'Usuario',
           onTap: () {
@@ -44,7 +44,7 @@ class NavigationButton extends StatelessWidget {
           },
         ),
         SpeedDialChild(
-          backgroundColor: const Color.fromRGBO(165, 201, 202, 1),
+          backgroundColor: color,
           child: const Icon(Icons.calendar_today),
           label: 'Periodo',
           onTap: () {
@@ -53,7 +53,16 @@ class NavigationButton extends StatelessWidget {
           },
         ),
         SpeedDialChild(
-          backgroundColor: const Color.fromRGBO(165, 201, 202, 1),
+          backgroundColor: color,
+          child: const Icon(Icons.location_city),
+          label: 'Ambientes',
+          onTap: () {
+            isDialOpen.value = false;
+            Navigator.pushReplacementNamed(context, '/enviroment');
+          },
+        ),
+        SpeedDialChild(
+          backgroundColor: color,
           child: const Icon(Icons.schedule),
           label: 'Agenda',
           onTap: () {
