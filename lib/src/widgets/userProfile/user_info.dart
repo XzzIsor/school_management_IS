@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shool_management/src/controllers/user_controller.dart';
 import 'package:shool_management/src/models/models.dart';
 
 class UserInfo extends StatelessWidget {
@@ -6,19 +7,8 @@ class UserInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    User authUser = User(
-        id: '1',
-        name: 'Juan',
-        lastname: 'Perez',
-        email: 'nose@gmail.com',
-        type: 'Profesional',
-        contract: 'PT',
-        area: 'Ingeniería',
-        hoursDay: 1,
-        hoursWeek: 28,
-        teacher: true,
-        state: true,
-        idType: 'CC');
+    UserController _userController = UserController();
+    User authUser = _userController.authUser;
     Size _size = MediaQuery.of(context).size;
     double _sizeResponsive = _size.longestSide / _size.shortestSide;
     return Padding(
@@ -80,9 +70,13 @@ class UserInfo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             _text(size, 'ID: ' + user.id),
-            _text(size, 'Tipo Documento: ' + user.idType),
+            _text(
+                size,
+                user.idType == 'Cédula de Ciudadanía'
+                    ? 'Tipo Documento: CC'
+                    : 'Tipo Documento: NIT'),
             _text(size, 'Nombre: ' + user.name),
-            _text(size, 'Apellido: ' + user.lastname),
+            _text(size, 'Apellido: ' + user.lastName),
           ],
         ),
       ),
@@ -92,7 +86,7 @@ class UserInfo extends StatelessWidget {
   Widget _infoBox2(Size size, User user) {
     return SizedBox(
       height: size.height * 0.45,
-      width: size.width * 0.2,
+      width: size.width * 0.25,
       child: Padding(
         padding: EdgeInsets.all(size.height * 0.02),
         child: Column(
@@ -114,7 +108,7 @@ class UserInfo extends StatelessWidget {
       child: Text(
         text,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(fontSize: size.aspectRatio * 10),
+        style: TextStyle(fontSize: size.aspectRatio * 8),
       ),
     );
   }

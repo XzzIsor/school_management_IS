@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shool_management/src/controllers/controllers.dart';
 import 'package:shool_management/src/widgets/widgets.dart';
 
 class PeriodPage extends StatelessWidget {
@@ -7,9 +9,9 @@ class PeriodPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: NavigationButton(),
+      floatingActionButton: const NavigationButton(),
       body: Stack(
-        children: [BackgroundMain(), PeriodTable()],
+        children: const [BackgroundMain(), PeriodTable()],
       ),
     );
   }

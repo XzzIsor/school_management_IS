@@ -5,11 +5,6 @@
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-Competency competencyFromMap(String str) =>
-    Competency.fromMap(json.decode(str));
-
-String competencyToMap(Competency data) => json.encode(data.toMap());
-
 class Competency {
   Competency({
     required this.id,
@@ -27,6 +22,11 @@ class Competency {
         id: id ?? this.id,
         name: name ?? this.name,
       );
+
+  factory Competency.fromJson(String str) =>
+      Competency.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
 
   factory Competency.fromMap(Map<String, dynamic> json) => Competency(
         id: json["id"],

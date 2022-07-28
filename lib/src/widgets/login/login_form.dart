@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shool_management/src/controllers/controllers.dart';
 import 'package:shool_management/src/widgets/widgets.dart';
 
 class LoginForm extends StatefulWidget {
@@ -9,10 +10,11 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
+  String message = '';
   @override
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
-
+    final UserController _userController = UserController();
     String _email = '';
     String _password = '';
 
@@ -55,7 +57,14 @@ class _LoginFormState extends State<LoginForm> {
     );
 
     ElevatedButton _button = ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        bool auth = _userController.getAuthUser(_email, _password);
+        auth
+            ? Navigator.pushReplacementNamed(context, '/user')
+            : setState(() {
+                message = 'Usuario o contraseña incorrectos';
+              });
+      },
       child: const Text(
         'Ingresar',
         style: TextStyle(color: Colors.white, fontSize: 20),
@@ -73,8 +82,8 @@ class _LoginFormState extends State<LoginForm> {
       decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color.fromRGBO(113, 201, 206, 1),
               Color.fromARGB(255, 23, 128, 138),
+              Color.fromRGBO(113, 201, 206, 1),
             ],
             begin: FractionalOffset(0.15, 0.6),
             end: FractionalOffset(0.3, 0.9),
@@ -105,7 +114,11 @@ class _LoginFormState extends State<LoginForm> {
                 child: _passwordInput,
               ),
               SizedBox(height: _size.width * 0.04),
-              Center(child: _button)
+              Center(child: _button),
+              SizedBox(height: _size.width * 0.02),
+              Text(message,
+                  style: TextStyle(
+                      color: Colors.white, fontSize: _size.aspectRatio * 8)),
             ],
           ),
         ),

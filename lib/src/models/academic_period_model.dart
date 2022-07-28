@@ -5,11 +5,6 @@
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-AcademicPeriod academicPeriodFromMap(String str) =>
-    AcademicPeriod.fromMap(json.decode(str));
-
-String academicPeriodToMap(AcademicPeriod data) => json.encode(data.toMap());
-
 class AcademicPeriod {
   AcademicPeriod({
     required this.id,
@@ -35,6 +30,11 @@ class AcademicPeriod {
         startDate: startDate ?? this.startDate,
         endDate: endDate ?? this.endDate,
       );
+
+  factory AcademicPeriod.fromJson(String str) =>
+      AcademicPeriod.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
 
   factory AcademicPeriod.fromMap(Map<String, dynamic> json) => AcademicPeriod(
         id: json["id"],

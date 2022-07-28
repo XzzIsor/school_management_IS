@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'package:shool_management/src/controllers/controllers.dart';
 import 'package:shool_management/src/models/models.dart';
 import 'package:shool_management/src/widgets/widgets.dart';
 
@@ -11,15 +14,9 @@ class PeriodTable extends StatefulWidget {
 
 class _PeriodTableState extends State<PeriodTable> {
   List<AcademicPeriod> periods = [];
+
   @override
   void initState() {
-    AcademicPeriod period = AcademicPeriod(
-        id: '',
-        name: 'Nombre',
-        startDate: 'Fecha Inicial',
-        endDate: 'Fecha Final');
-
-    periods.insert(0, period);
     super.initState();
   }
 
@@ -30,6 +27,13 @@ class _PeriodTableState extends State<PeriodTable> {
 
   @override
   Widget build(BuildContext context) {
+    periods.clear();
+    PeriodController _periodController = Provider.of<PeriodController>(context);
+
+    _periodController.periods.forEach((element) {
+      periods.add(element);
+    });
+
     Size _size = MediaQuery.of(context).size;
     return Center(
       child: Column(

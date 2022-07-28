@@ -1,4 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'package:shool_management/src/controllers/controllers.dart';
+import 'package:shool_management/src/models/academic_period_model.dart';
 import 'package:shool_management/src/widgets/custom_textfield.dart';
 import 'package:flutter_rounded_date_picker/flutter_rounded_date_picker.dart';
 
@@ -10,6 +16,8 @@ class PeriodAdd extends StatefulWidget {
 }
 
 class _PeriodAddState extends State<PeriodAdd> {
+  String message = '';
+  String name = '';
   DateTime? newDateTime = DateTime.now();
   DateTime? newDateTimeF = DateTime.now();
   String date = DateTime.now().toString().substring(0, 10);
@@ -17,6 +25,8 @@ class _PeriodAddState extends State<PeriodAdd> {
 
   @override
   Widget build(BuildContext context) {
+    PeriodController _periodController = Provider.of<PeriodController>(context);
+
     Size _size = MediaQuery.of(context).size;
     TextStyle styleT = TextStyle(
         fontSize: _size.width / _size.height * 10, color: Colors.white);
@@ -53,7 +63,9 @@ class _PeriodAddState extends State<PeriodAdd> {
                   label: 'Nombre',
                   icon: Icons.abc,
                   hintText: 'Periodo 2020-1',
-                  onChange: (value) {},
+                  onChange: (value) {
+                    name = value;
+                  },
                   emailType: false,
                   obscureText: false),
               SizedBox(height: _size.height * 0.03),
@@ -63,7 +75,15 @@ class _PeriodAddState extends State<PeriodAdd> {
               Text('Fecha Final', style: styleT),
               _datePickerFinal(context, _size),
               SizedBox(height: _size.height * 0.015),
-              _addButton(_size)
+              _addButton(_size, _periodController),
+              SizedBox(height: _size.height * 0.015),
+              Center(
+                child: Text(
+                  message,
+                  style: TextStyle(
+                      color: Colors.white, fontSize: _size.aspectRatio * 4),
+                ),
+              )
             ],
           )),
     );
@@ -125,7 +145,7 @@ class _PeriodAddState extends State<PeriodAdd> {
     );
   }
 
-  Widget _addButton(Size size) {
+  Widget _addButton(Size size, PeriodController periodController) {
     return SizedBox(
       width: size.width * 0.05,
       child: ElevatedButton(
@@ -135,12 +155,42 @@ class _PeriodAddState extends State<PeriodAdd> {
               primary: const Color.fromRGBO(245, 241, 203, 1),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15))),
-          onPressed: () {},
+          onPressed: () async {
+            if (_validDate()) {
+              AcademicPeriod period = AcademicPeriod(
+                id: periodController.periods.length + 1,
+                name: name,
+                startDate: date,
+                endDate: dateF,
+              );
+              bool isCreated = await periodController.createPeriod(period);
+              if (!isCreated) {
+                setState(() {
+                  message = 'El periodo no pudo agregarse';
+                });
+              }
+              Navigator.of(context).pop();
+            } else {
+              setState(() {
+                message = 'El periodo debe ser de 3 o 6 meses';
+              });
+            }
+          },
           child: Text('Agregar',
               style: TextStyle(
                   fontSize: size.longestSide / size.shortestSide * 10,
                   color: Colors.black))),
     );
+  }
+
+  bool _validDate() {
+    final dateInit = date.split("-");
+    final dateFinal = dateF.split("-");
+    int duration = int.parse(dateFinal[1]) - int.parse(dateInit[1]);
+    if (duration == 3 || duration == 6) {
+      return true;
+    }
+    return false;
   }
 
   Future<DateTime?> _datePickerWidget(Size size) async {

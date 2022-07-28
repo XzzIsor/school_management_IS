@@ -39,7 +39,7 @@ class NavigationButton extends StatelessWidget {
           child: const Icon(Icons.person),
           label: 'Usuario',
           onTap: () {
-            Navigator.pushNamed(context, '/user');
+            Navigator.pushReplacementNamed(context, '/user');
             isDialOpen.value = false;
           },
         ),
@@ -49,7 +49,7 @@ class NavigationButton extends StatelessWidget {
           label: 'Periodo',
           onTap: () {
             isDialOpen.value = false;
-            Navigator.pushNamed(context, '/period');
+            Navigator.pushReplacementNamed(context, '/period');
           },
         ),
         SpeedDialChild(
@@ -58,7 +58,7 @@ class NavigationButton extends StatelessWidget {
           label: 'Ambientes',
           onTap: () {
             isDialOpen.value = false;
-            Navigator.pushNamed(context, '/enviroment');
+            Navigator.pushReplacementNamed(context, '/enviroment');
           },
         ),
         SpeedDialChild(
@@ -67,7 +67,7 @@ class NavigationButton extends StatelessWidget {
           label: 'Horarios',
           onTap: () {
             isDialOpen.value = false;
-            Navigator.pushNamed(context, '/schedule');
+            Navigator.pushReplacementNamed(context, '/schedule');
           },
         ),
         SpeedDialChild(

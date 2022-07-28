@@ -5,16 +5,12 @@
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-User userFromMap(String str) => User.fromMap(json.decode(str));
-
-String userToMap(User data) => json.encode(data.toMap());
-
 class User {
   User({
     required this.id,
     required this.idType,
     required this.name,
-    required this.lastname,
+    required this.lastName,
     required this.email,
     required this.type,
     required this.contract,
@@ -28,7 +24,7 @@ class User {
   String id;
   String idType;
   String name;
-  String lastname;
+  String lastName;
   String email;
   String type;
   String contract;
@@ -42,7 +38,7 @@ class User {
     String? id,
     String? idType,
     String? name,
-    String? lastname,
+    String? lastName,
     String? email,
     String? type,
     String? contract,
@@ -56,7 +52,7 @@ class User {
         id: id ?? this.id,
         idType: idType ?? this.idType,
         name: name ?? this.name,
-        lastname: lastname ?? this.lastname,
+        lastName: lastName ?? this.lastName,
         email: email ?? this.email,
         type: type ?? this.type,
         contract: contract ?? this.contract,
@@ -67,11 +63,15 @@ class User {
         hoursDay: hoursDay ?? this.hoursDay,
       );
 
+  factory User.fromJson(String str) => User.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
   factory User.fromMap(Map<String, dynamic> json) => User(
         id: json["id"],
         idType: json["idType"],
         name: json["name"],
-        lastname: json["lastname"],
+        lastName: json["lastName"],
         email: json["email"],
         type: json["type"],
         contract: json["contract"],
@@ -86,7 +86,7 @@ class User {
         "id": id,
         "idType": idType,
         "name": name,
-        "lastname": lastname,
+        "lastname": lastName,
         "email": email,
         "type": type,
         "contract": contract,

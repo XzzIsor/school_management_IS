@@ -5,10 +5,6 @@
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-Classroom classroomFromMap(String str) => Classroom.fromMap(json.decode(str));
-
-String classroomToMap(Classroom data) => json.encode(data.toMap());
-
 class Classroom {
   Classroom({
     required this.cod,
@@ -43,6 +39,10 @@ class Classroom {
         state: state ?? this.state,
       );
 
+  factory Classroom.fromJson(String str) => Classroom.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
   factory Classroom.fromMap(Map<String, dynamic> json) => Classroom(
         cod: json["cod"],
         name: json["name"],
@@ -53,7 +53,7 @@ class Classroom {
       );
 
   Map<String, dynamic> toMap() => {
-        "cod": cod,
+        "id": cod,
         "name": name,
         "type": type,
         "location": location,
